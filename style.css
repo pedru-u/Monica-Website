@@ -4,11 +4,12 @@ body {
     background-color: #C6D8D3;
     color: #000;
     margin: 0;
+    font-family: Ubuntu, sans-serif;
 }
 .main-container{
     margin: 0 auto;
     margin-top: 4.2rem;
-    padding: 0 1rem;
+    padding: 0 ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,12 +22,18 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: rgba(184, 197, 214, 0.5); ;
+    background-color: rgba(255, 255, 255, 1); ;
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
     z-index: 100;
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
 }
+
+.navbar.scrolled {
+    opacity: 0.8; /* Reduce opacity when scrolled */
+}
+
 .navbar-title{
     font-size: 1rem;
 }   
@@ -52,15 +59,41 @@ body {
     font-size: 2.4rem;
 }
 
-img {
-    height: 50%;
-    width: auto;
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 2.4rem;
 }
+.about-title{
+    font-size: 4rem;
+}
+.about-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.home_image{
+    height: 70%;
+    width: 100%;
+}
+
+.about_image{
+    height: 70%;
+    width: auto;
+    padding-right: 1rem;
+}
+
 
 /* Hide the image for screens smaller than 768px */
 @media (max-width: 925px) {
-    img {
+    .home_image {
         display: none;
+    }
+    .about-content{
+        flex-direction: column;
     }
     
 }
