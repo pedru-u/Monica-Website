@@ -1,10 +1,16 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
     width: 100%;
     height: 100%;
     background-color: #C6D8D3;
     color: #000;
     margin: 0;
-    font-family: Ubuntu, sans-serif;
+    font-family: "Space Grotesk", sans-serif;
+}
+#home {
+    scroll-margin-top: 4.2rem; /* Offset the scroll position by the height of the navbar */
 }
 .main-container{
     margin: 0 auto;
@@ -53,12 +59,25 @@ body {
 }
 .home{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
     font-size: 2.4rem;
+    background-image: url("images/profile.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 12rem;
 }
-
+.home-title{
+    display: flex;
+    flex-direction: column;
+    font-size: 4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
 .about{
     display: flex;
     flex-direction: column;
@@ -76,7 +95,7 @@ body {
     width: 100%;
 }
 .home_image{
-    height: 70%;
+    height: 40%;
     width: 100%;
 }
 
@@ -89,17 +108,17 @@ body {
 
 /* Hide the image for screens smaller than 768px */
 @media (max-width: 925px) {
-    .home_image {
-        display: none;
-    }
     .about-content{
         flex-direction: column;
     }
     
 }
-@media (min-width: 1350px) {
-    .home-text{
-        font-size: 3.3rem !important;
+@media (max-width: 1350px) {
+    .home-title{
+        font-size: 2rem !important;
+    }
+    .about-text{
+        font-size: 2rem !important;
     }
     
 }
