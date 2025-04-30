@@ -4,7 +4,7 @@ html {
 body {
     width: 100%;
     height: 100%;
-    background-color: #C6D8D3;
+    background-color: #c6d8d3;
     color: #000;
     margin: 0;
     font-family: "Space Grotesk", sans-serif;
@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 1000vh;
+    height: max-content;
 }
 .navbar {
     position: fixed;
@@ -52,7 +52,7 @@ body {
 .navbar ul li{
     display: inline-block;
     margin: 0 1rem;
-    font-size: 1rem; ;
+    font-size: 1.3rem; ;
 }  
 .navbar ul li a {
     text-decoration: none;
@@ -62,17 +62,26 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100vh;
     width: 100%;
-    font-size: 2.4rem;
+    font-size: 5rem;
     background-image: url("images/profile.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    object-fit: cover;
     margin-bottom: 12rem;
+}
+.Name{
+    font-size: 13rem;
+    font-family: "Birthstone", sans-serif;
+    padding: 0 0;
+    margin: 0 0;
 }
 .home-title{
     display: flex;
-    width: 100%;;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     font-size: 4rem;
     color: #fff;
@@ -80,6 +89,38 @@ body {
     align-items: center;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.4);
+}
+.dot-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    margin-top: 2rem    ;
+}
+.dot-container ol {
+    display: flex; /* Align items in a row */
+    justify-content: center; /* Center the circles */
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+}
+.dot-container ol li {
+    width: 20px; /* Set circle size */
+    height: 20px;
+    margin: 0 10px; /* Add spacing between circles */
+    background-color: rgba(0, 0, 0, 0.4); /* Circle color */
+    border-radius: 50%; /* Make it a circle */
+}
+.dot-container ol li.active {
+    background-color: #000; /* Active circle color */
+}
+.home-text{
+    text-align: center;
+    color: #39272c;
+    font-size: 2rem;
+    width: 95%;
+    margin: 0 0 ;
 }
 .about, .Trabalho{
     display: flex;
@@ -92,7 +133,6 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     font-size: 2.4rem;
     margin-bottom: 25vh;
-    margin-top: 25vh;
 }
 .about-hr, .trabalho-hr{
     width: 90%;
@@ -123,6 +163,93 @@ body {
     height: auto;
     width: 40%;
     object-fit: cover;
+    border-radius: 30px;
+}
+
+.card-widget{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+    margin: 1rem;
+    border-radius: 1rem;
+    font-size: 2.4rem;
+}
+
+.card-container{
+    display: flex;
+    width: 100%;
+    flex-direction: row; /* Arrange cards horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap to cards when scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+}
+
+.card1 {
+    display: flex; /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: #000 solid 0.2rem;
+    scroll-snap-align: center; /* Ensure cards snap to the center */
+    flex: 0 0 95%; /* Each card takes full width of the container */
+    margin: 0 1rem; /* Add spacing between cards */
+}
+
+.card1.active {
+    display: flex; /* Show when active */
+}
+
+.card1-title, .card2-title{
+    font-size: 1.5rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.card1-text, .card2-text{
+    padding-left: 1rem;
+    text-align: justify;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.card1_image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.card2 {
+    display: flex; /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: #000 solid 0.2rem;
+    scroll-snap-align: center; /* Ensure cards snap to the center */
+    flex: 0 0 95%; /* Each card takes full width of the container */
+    margin: 0 1rem; /* Add spacing between cards */
+}
+
+.card2.active {
+    display: flex; /* Show when active */
+}
+
+
+.card2_image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px;
 }
 
 /* Adjust layout for phone mode */
@@ -142,29 +269,81 @@ body {
 @media (max-width: 520px){
     .navbar ul{
         display: none;
+
+    }
+    .home-title{
+        font-size: 1.3rem !important;
     }
     .about, .Trabalho{
         width: 90%;
     }
-    .about-text, .Trabalho-text{ 
+    .about-text, .Trabalho-text,.home-text{ 
         font-size: 1.5rem !important;
+    }
+    .home-text{
+        font-size: 0.9rem !important;
+    }
+    .about-title, .Trabalho-title{
+        font-size: 1.8rem !important;
     }
 }
 @media(max-width:1200px){
     .about_image, .Trabalho_image{
         width: 30%;
     }
+    .Name{
+        font-size: 5rem;
+    }
 }
 
 @media (max-width: 1350px) {
-    .home-title{
-        font-size: 2rem !important;
-    }
     .about-text, .Trabalho-text{ 
         font-size: 2rem;
     }
     .about-title, .Trabalho-title{
-        font-size: 2.4rem !important;
+        font-size: 2.4rem;
+    }
+}
+@media (min-width: 1200px){
+    .card1, .card2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 45%;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        background-color: rgba(255, 255, 255, 0.3);
+        border: #000 solid 0.2rem;
+        scroll-snap-align: center; /* Ensure cards snap to the center */
+        flex: 0 0 45%; /* Each card takes full width of the container */
+    }
+    .card1_image, .card2_image{
+        border-radius: 30px;
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+    }
+    .card1{
+        margin-left: 2rem;
+    }
+    .card2{
+        margin-right: 2rem;
+    }
+    .card-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+.card1-text, .card2-text{
+    font-size: 2rem;
+}
+    .dot-container{
+        display: none;
     }
 }
 
