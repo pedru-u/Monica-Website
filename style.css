@@ -127,12 +127,13 @@ body {
     flex-direction: column;
     align-items: center;
     width: 98%;
+    padding: 2vh;
     margin: 1rem;
+    margin-bottom: 0;
+    margin-top: 0;
     border-radius: 1rem;
-    border: #000 solid 0.2rem;
     background-color: rgba(255, 255, 255, 0.3);
     font-size: 2.4rem;
-    margin-bottom: 25vh;
 }
 .about-hr, .trabalho-hr{
     width: 90%;
@@ -184,6 +185,12 @@ body {
     overflow-x: auto; /* Enable horizontal scrolling */
     scroll-snap-type: x mandatory; /* Snap to cards when scrolling */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer */
+}
+
+.card-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
 }
 
 .card1 {
@@ -195,7 +202,7 @@ body {
     border-radius: 1rem;
     font-size: 1.5rem;
     background-color: rgba(255, 255, 255, 0.3);
-    border: #000 solid 0.2rem;
+    border: rgba(0, 0, 0, 0.4) solid 0.2rem;
     scroll-snap-align: center; /* Ensure cards snap to the center */
     flex: 0 0 95%; /* Each card takes full width of the container */
     margin: 0 1rem; /* Add spacing between cards */
@@ -234,7 +241,7 @@ body {
     border-radius: 1rem;
     font-size: 1.5rem;
     background-color: rgba(255, 255, 255, 0.3);
-    border: #000 solid 0.2rem;
+    border: rgba(0, 0, 0, 0.4) solid 0.2rem;
     scroll-snap-align: center; /* Ensure cards snap to the center */
     flex: 0 0 95%; /* Each card takes full width of the container */
     margin: 0 1rem; /* Add spacing between cards */
@@ -250,6 +257,79 @@ body {
     width: 100%;
     object-fit: cover;
     border-radius: 30px;
+}
+
+.achievement-section-holder{
+    display: flex;
+    width: 100%;
+    flex-direction: row; /* Arrange cards horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap to cards when scrolling */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer */
+}
+
+.achievement-section-holder::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+}
+
+.achievement-section-dot-container ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.achievement-section-dot-container ol li {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+    background-color: rgba(54, 34, 48, 0.2);
+    border-radius: 50%;
+}
+.achievement-section-dot-container ol li.active {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.achievement-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem;
+    font-size: 2.4rem;
+    background-color: #A657AE;
+}
+
+.achievement1-title, .achievement2-title, .achievement3-title, .achievement4-title{
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    padding: 0;
+    text-align: center;
+}
+
+.achievement1, .achievement2, .achievement3, .achievement4{
+    display: flex; /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    scroll-snap-align: center; /* Ensure cards snap to the center */
+    flex: 0 0 95%; /* Each card takes full width of the container */
+    margin: 0 1rem; 
+}
+
+.achievement1-text, .achievement2-text, .achievement3-text, .achievement4-text{
+    text-align: justify;
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0 1rem;
 }
 
 /* Adjust layout for phone mode */
@@ -305,6 +385,9 @@ body {
     }
 }
 @media (min-width: 1200px){
+    .about, .Trabalho{
+        padding: 0;
+    }
     .card1, .card2{
         display: flex;
         flex-direction: column;

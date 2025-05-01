@@ -6,13 +6,16 @@ document.addEventListener('scroll', () => {
         navbar.classList.add('scrolled'); // Add the 'scrolled' class if the user has scrolled down
     } else {
         navbar.classList.remove('scrolled'); // Remove the 'scrolled' class if the user is at the top
-    }
+    };
 });
 
 // Select all dots and cards, and the card container
 const dots = document.querySelectorAll('.dot-container ol li'); // Select all dots in the dot container
 const cards = document.querySelectorAll('.card-container > div'); // Select all cards inside the card container
-const cardContainer = document.querySelector('.card-container'); // Select the card container
+const cardContainer = document.querySelector('.card-container');// Select the card container
+const achievementDots = document.querySelectorAll('.achievement-section-dot-container ol li'); // Select all achievement dots
+const achievementCards = document.querySelectorAll('.achievement-section-holder > div'); // Select all achievement cards inside the achievement card container
+const achievementContainer = document.querySelector('.achievement-section-holder'); // Select the achievement card container
 
 // Add click event listeners to each dot
 dots.forEach((dot, index) => {
@@ -25,13 +28,24 @@ dots.forEach((dot, index) => {
 
         // Remove the 'active' class from all cards and dots
         cards.forEach(card => card.classList.remove('active'));
-        dots.forEach(d => d.classList.remove('active'));
-
         // Add the 'active' class to the selected card and dot
         cards[index].classList.add('active');
-        dot.classList.add('active');
     });
 });
+
+achievementDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        const cardWidth = achievementCards[index].offsetWidth;
+    achievementContainer.scrollTo({
+        left: index * cardWidth,
+        behavior: 'smooth',
+    });
+
+    achievementCards.forEach(card => card.classList.remove('active'));
+
+    achievementCards[index].classList.add('active');
+    })})
+
 
 // Add a scroll event listener to the card container
 cardContainer.addEventListener('scroll', () => {
@@ -51,8 +65,26 @@ cardContainer.addEventListener('scroll', () => {
     });
 });
 
+achievementContainer.addEventListener('scroll', () => {
+    const containerScrollLeft = achievementContainer.scrollLeft;
+    const cardWidth = achievementCards[0].offsetWidth; // Get the width of a single card
+
+    const currentIndex = Math.round(containerScrollLeft / cardWidth);
+
+    achievementDots.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.classList.add('active'); // Highlight the dot corresponding to the visible card
+        } else {
+            dot.classList.remove('active'); // Remove the highlight from other dots
+        }
+    });
+});
+
+
+
 // Initialize the current card index
 let currentIndex = 0;
+let currentIndex2 = 0; 
 
 // Function to scroll to the next card
 function scrollToNextCard() {
@@ -65,14 +97,12 @@ function scrollToNextCard() {
         behavior: 'smooth', // Enable smooth scrolling
     });
 
-    // Update the 'active' class for dots
-    dots.forEach((dot, index) => {
-        if (index === currentIndex) {
-            dot.classList.add('active'); // Highlight the dot corresponding to the visible card
-        } else {
-            dot.classList.remove('active'); // Remove the highlight from other dots
-        }
-    });
+    currentIndex2 = (currentIndex2 + 1) % achievementCards.length; // Increment the index for achievement cards
+    const cardWidth2 = achievementCards[0].offsetWidth; // Get the width of a single achievement card
+    achievementContainer.scrollTo({
+        left: currentIndex2 * cardWidth2,
+        behavior: 'smooth', // Enable smooth scrolling
+    })
 }
 
 // Start a timer to automatically scroll to the next card every 5 seconds
