@@ -429,6 +429,12 @@ textarea{
     font-family: "Space Grotesk", sans-serif;
 }
 
+.rights-text{
+    font-size: 1rem;
+    width: 95%;
+    text-align: justify;
+}
+
 input:focus::placeholder, 
 textarea:focus::placeholder {
     color: transparent; /* Hide the placeholder text */
