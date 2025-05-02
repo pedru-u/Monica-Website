@@ -9,6 +9,9 @@ document.addEventListener('scroll', () => {
     };
 });
 
+let currentIndex = 0;
+let currentIndex2 = 0; 
+
 // Select all dots and cards, and the card container
 const dots = document.querySelectorAll('.dot-container ol li'); // Select all dots in the dot container
 const cards = document.querySelectorAll('.card-container > div'); // Select all cards inside the card container
@@ -74,6 +77,7 @@ achievementContainer.addEventListener('scroll', () => {
     achievementDots.forEach((dot, index) => {
         if (index === currentIndex) {
             dot.classList.add('active'); // Highlight the dot corresponding to the visible card
+            currentIndex2 = index
         } else {
             dot.classList.remove('active'); // Remove the highlight from other dots
         }
@@ -83,8 +87,6 @@ achievementContainer.addEventListener('scroll', () => {
 
 
 // Initialize the current card index
-let currentIndex = 0;
-let currentIndex2 = 0; 
 
 // Function to scroll to the next card
 function scrollToNextCard() {
@@ -107,3 +109,21 @@ function scrollToNextCard() {
 
 // Start a timer to automatically scroll to the next card every 5 seconds
 setInterval(scrollToNextCard, 7000);
+
+// Select the form and email input field
+const form = document.querySelector('form');
+const emailInput = document.querySelector('input[type="email"]');
+
+// Add a submit event listener to the form
+form.addEventListener('submit', (event) => {
+    const emailValue = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email validation
+
+    if (!emailRegex.test(emailValue)) {
+        event.preventDefault(); // Prevent form submission
+        alert('Por favor, insira um email válido.'); // Show an error message
+    } else {
+        // Clear all input and textarea fields after successful submission
+        form.reset();
+    }
+});

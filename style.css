@@ -332,6 +332,110 @@ body {
     margin: 0 1rem;
 }
 
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.contact-title{
+    font-size: 1rem;
+    padding: 0;
+    text-align: center;
+}
+
+.contact-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 0;
+}
+
+.email-label{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    width: 85%;
+    text-align: left;
+    margin-bottom: 1rem ;
+}
+
+.name-label{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    width: 85%;
+    text-align: left;
+    margin-bottom: 1rem ;
+}
+
+.message-label{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    width: 85%;
+    height: 20vh;
+    text-align: left;
+    margin-bottom: 1rem ;
+}
+
+input{
+    width: 95%;
+    margin-top: 1vh;
+    border: rgba(0, 0, 0, 0.4) solid 0.2rem;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1vh 0;
+    padding-left: 1vh;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+textarea{
+    margin-top: 1vh;
+    padding-top: 1.5vh;
+    width: 95%;
+    border: rgba(0, 0, 0, 0.4) solid 0.2rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    resize: none; /* Disable resizing */
+    font-family: "Space Grotesk", sans-serif;
+}
+
+input:focus::placeholder, 
+textarea:focus::placeholder {
+    color: transparent; /* Hide the placeholder text */
+}
+
+button{
+    width: 50%;
+    margin-top: 1vh;
+    border: rgba(0, 0, 0, 0.4) solid 0.2rem;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1vh 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 /* Adjust layout for phone mode */
 @media (max-width: 925px) {
     .about-content, .Trabalho-content{
