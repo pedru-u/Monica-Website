@@ -1,11 +1,14 @@
 // Add a scroll event listener to the document
 document.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop; // Get the current vertical scroll position
-    const navbar = document.querySelector('.navbar'); // Select the navbar element
+    const navbar = document.querySelector('.navbar');
+    const navbarTitle = document.querySelector('.navbar-title') // Select the navbar element
     if (scrollPosition > 0) {
         navbar.classList.add('scrolled'); // Add the 'scrolled' class if the user has scrolled down
+        navbarTitle.classList.add('scrolled'); // Add the 'scrolled' class to the navbar title
     } else {
-        navbar.classList.remove('scrolled'); // Remove the 'scrolled' class if the user is at the top
+        navbar.classList.remove('scrolled');
+        navbarTitle.classList.remove('scrolled') // Remove the 'scrolled' class if the user is at the top
     };
 });
 
